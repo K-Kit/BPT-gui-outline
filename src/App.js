@@ -5,6 +5,7 @@ import 'ag-grid/dist/styles/ag-grid.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import GridExample from './table'
 import SimpleTabs from './tabs';
+import plot from './plot'
 
 const theme = createMuiTheme({
     palette: {
