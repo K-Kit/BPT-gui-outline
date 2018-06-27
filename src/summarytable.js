@@ -8,11 +8,23 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+const CustomTableCell = withStyles(theme => ({
+    body: {
+        borderBottomWidth: '1px',
+        borderBottomColor: 'grey',
+        padding: '10px',
+    }
+}))(TableCell);
+
 const styles = theme => ({
     root: {
         width: '100%',
         marginTop: theme.spacing.unit * 1,
         overflowX: 'auto',
+    },
+    table: {
+        width: '100%',
+        backgroundColor: '#2d3436',
     },
 });
 
@@ -25,11 +37,10 @@ function createData(name, d) {
 const data = [
     createData('Available Balance', 159),
     createData('Current Balance', 159),
-    createData('1d profit', 159),
-    createData('7d profit', 159),
-    createData('1m profit', 159),
-    createData('Eth Price', 159),
-    createData('24h Market Change', 159),
+    createData('1D Profit', 159),
+    createData('7D Profit', 159),
+    createData('30D Profit', 159),
+    createData('24H Market Change', 159),
 ];
 
 function SimpleTable(props) {
@@ -38,20 +49,14 @@ function SimpleTable(props) {
     return (
         <Paper className={classes.root}>
             <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Thing</TableCell>
-                        <TableCell numeric>Data</TableCell>
-                    </TableRow>
-                </TableHead>
                 <TableBody>
                     {data.map(n => {
                         return (
                             <TableRow>
-                                <TableCell component="th" scope="row">
+                                <CustomTableCell component="th" scope="row">
                                     {n.name}
-                                </TableCell>
-                                <TableCell numeric>{n.d}</TableCell>
+                                </CustomTableCell>
+                                <CustomTableCell numeric>{n.d}</CustomTableCell>
                             </TableRow>
                         );
                     })}
