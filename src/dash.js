@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import SimpleModal from './modal'
-import SimpleTable from './summarytable'
+import SimpleModal from './modal';
+import SimpleTable from './summarytable';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
 
 const styles = theme => ({
     root: {
@@ -17,6 +20,16 @@ const styles = theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    table: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+    card: {
+        minWidth: 275,
+        backgroundColor: '#334854',
+        opacity: 200,
+    },
 });
 
 function AutoGrid(props) {
@@ -27,47 +40,37 @@ function AutoGrid(props) {
             <Grid container spacing={24}>
                 <Grid item xs={4}>
                     <Paper className={classes.paper}>
-                        <SimpleTable></SimpleTable>
+                        <Card className={classes.card}>
+                            <CardContent><SimpleTable></SimpleTable></CardContent>
+                        </Card>
                     </Paper>
                 </Grid>
-
-				<Grid item xs={8}>
-					<Paper className={classes.paper}>
-						<SimpleCard attr={'Main Currency Chart'}></SimpleCard>
-					</Paper>
+                <Grid item xs={4}>
+    				<Paper className={classes.paper}>
+    					<SimpleCard attr={'ETH/BTC 1+24H Change'}></SimpleCard>
+    				</Paper>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'Market Change'}></SimpleCard>
+                        <SimpleCard attr={'Last 5 Sales w/ profits'}></SimpleCard>
                     </Paper>
-				</Grid>
-
-            </Grid>
-            <Grid container spacing={24}>
+                </Grid>
                 <Grid item xs={4}>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'tickers widget'}></SimpleCard>
+                        <SimpleCard attr={'Last 5 buys w/ costs'}></SimpleCard>
                     </Paper>
-                </Grid>
-
-                <Grid item xs>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'1m profit'}></SimpleCard>
+                        <SimpleCard attr={'Start Bal / Current Bal'}></SimpleCard>
                     </Paper>
-                </Grid>
+    			</Grid>
             </Grid>
             <Grid container spacing={24}>
-                <Grid item xs>
+                <Grid item xs={12}>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'more stats'}></SimpleCard>
+                        <SimpleCard attr={'ETH / BTC 1D graph'}></SimpleCard>
                     </Paper>
                 </Grid>
-                <Grid item xs>
+                <Grid item xs={12}>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'cool info'}></SimpleCard>
-                    </Paper>
-                </Grid>
-                <Grid item xs>
-                    <Paper className={classes.paper}>
-                        <SimpleModal></SimpleModal>
+                        <SimpleCard attr={'Graph of profits over past 30D'}></SimpleCard>
                     </Paper>
                 </Grid>
             </Grid>
