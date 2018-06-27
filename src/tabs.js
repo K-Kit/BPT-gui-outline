@@ -44,6 +44,7 @@ class SimpleTabs extends React.Component {
         return (
             <div className={classes.root}>
                 <AppBar position="static">
+
                     <Tabs value={value} onChange={this.handleChange}>
                         <Tab label="Dashboard" />
                         <Tab label="Market Data" />
@@ -54,7 +55,6 @@ class SimpleTabs extends React.Component {
                     </Tabs>
                 </AppBar>
                 {value === 0 &&
-
                 <TabContainer>
                     <AutoGrid></AutoGrid>
                 </TabContainer>}
