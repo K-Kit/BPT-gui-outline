@@ -15,7 +15,10 @@ const styles = theme => ({
     },
     title: {
         marginBottom: 16,
-        fontSize: 14,
+        fontSize: 18,
+        backgroundColor: '#2d3436',
+        width: '100%',
+        borderRadius: '25px',
     },
     pos: {
         marginBottom: 12,
@@ -30,8 +33,8 @@ function SimpleCard(props) {
         <div>
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography className={classes.title} color="textSecondary">
-                        {props.attr}:
+                    <Typography variant="headline" component="h1" className={classes.title}>
+                        {props.attr}
                     </Typography>
                     <Typography variant="headline" component="h2">
                         9999,999,999,999
