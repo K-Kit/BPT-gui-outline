@@ -37,7 +37,7 @@ function SimpleCard(props) {
                         {props.attr}
                     </Typography>
                     <Typography variant="headline" component="h2">
-                        9999,999,999,999
+                        {props.apiData}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
                         1000eth

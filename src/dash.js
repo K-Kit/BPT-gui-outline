@@ -47,15 +47,15 @@ function AutoGrid(props) {
                 </Grid>
                 <Grid item xs={4}>
     				<Paper className={classes.paper}>
-    					<SimpleCard attr={'ETH/BTC 1+24H Change'}></SimpleCard>
+    					<SimpleCard attr={'ETH | BTC 24H Change'}></SimpleCard>
     				</Paper>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'Last 5 Sales w/ profits'}></SimpleCard>
+                        <SimpleCard attr={'Last 5 buys w/ costs'}></SimpleCard>
                     </Paper>
                 </Grid>
                 <Grid item xs={4}>
                     <Paper className={classes.paper}>
-                        <SimpleCard attr={'Last 5 buys w/ costs'}></SimpleCard>
+                        <SimpleCard attr={'Last 5 Sales'}></SimpleCard>
                     </Paper>
                     <Paper className={classes.paper}>
                         <SimpleCard attr={'Start Bal / Current Bal'}></SimpleCard>
