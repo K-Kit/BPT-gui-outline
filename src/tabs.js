@@ -49,7 +49,6 @@ class SimpleTabs extends React.Component {
                         <Tab label="Dashboard" />
                         <Tab label="Market Data" />
                         <Tab label="Holding" />
-                        <Tab label="Possible Buys"/>
                         <Tab label="Sales Log" />
                         <Tab label="Buy Log" />
                     </Tabs>
@@ -58,11 +57,10 @@ class SimpleTabs extends React.Component {
                 <TabContainer>
                     <AutoGrid></AutoGrid>
                 </TabContainer>}
-                {value === 1 && <TabContainer><CustomizedTable name={'holding'}></CustomizedTable></TabContainer>}
-                {value === 2 && <TabContainer><CustomizedTable name={'holding'}></CustomizedTable></TabContainer>}
-                {value === 3 && <TabContainer><CustomizedTable name={'holding'}></CustomizedTable></TabContainer>}
-                {value === 4 && <TabContainer><CustomizedTable name={'holding'}></CustomizedTable></TabContainer>}
-                {value === 5 && <TabContainer><CustomizedTable name={'holding'}></CustomizedTable></TabContainer>}
+                {value === 1 && <TabContainer><CustomizedTable url={'market_data'}></CustomizedTable></TabContainer>}
+                {value === 2 && <TabContainer><CustomizedTable url={'holding'}></CustomizedTable></TabContainer>}
+                {value === 3 && <TabContainer><CustomizedTable url={'sales_log'}></CustomizedTable></TabContainer>}
+                {value === 4 && <TabContainer><CustomizedTable url={'buy_log'}></CustomizedTable></TabContainer>}
             </div>
         );
     }

@@ -9,40 +9,7 @@ class GridExample extends Component {
 
         this.state = {
             //todo add column defs api call
-            columnDefs: [
-                {
-                    headerName: "Pair",
-                    field: "symbol"
-                },
-                {
-                    headerName: "Current Price",
-                    field: "price"
-                },
-                {
-                    headerName: "Bought Price",
-                    field: "bought_price"
-                },
-                {
-                    headerName: "Percent Change",
-                    field: "percent_change"
-                },
-                {
-                    headerName: "24H Change",
-                    field: "change24"
-                },
-                {
-                    headerName: "DCA Level",
-                    field: "DCA_level"
-                },
-                {
-                    headerName: "Volume",
-                    field: "volume"
-                },
-                {
-                    headerName: "MFI 24H",
-                    field: "MFI_24"
-                },
-            ],
+            columnDefs: [],
             rowData: [],
             defaultColDef: { editable: false },
             getRowNodeId: function(data) {
@@ -62,12 +29,23 @@ class GridExample extends Component {
     updateFilter() {
         this.gridApi.refreshClientSideRowModel("filter");
     }
-
+    update(){
+        fetch(window.location.href +this.props.url)
+            .then(result => result.json())
+            .then(rowData => this.setState({rowData}))
+    }
     componentDidMount() {
-              fetch('https://gist.githubusercontent.com/K-Kit/d3fe07c5430c76b92a8585fc11baf49f/raw/3af793758a3ed6f6260e0e0017c74b6a0078499f/apx.json')
-                  .then(result => result.json())
-                  .then(rowData => this.setState({rowData}))
-            }
+        fetch(window.location.href +this.props.url +'_cols')
+            .then(result => result.json())
+            .then(columnDefs => this.setState({columnDefs}))
+        fetch(window.location.href +this.props.url)
+          .then(result => result.json())
+          .then(rowData => this.setState({rowData}))
+        this.interval = setInterval(() => this.update(), 10000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
     render() {
         return (
             <div style={{width: "auto", height: "900px" }}>
